@@ -6,8 +6,8 @@ RUN apt-get update \
  && apt-get install -y -q --no-install-recommends \
     ca-certificates \
     wget \
-    python3 \
     python-pip \
+    unzip \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
 
@@ -16,9 +16,12 @@ RUN wget -P /usr/local/bin https://godist.herokuapp.com/projects/ddollar/forego/
  && chmod u+x /usr/local/bin/forego
 
 COPY ./ /app
+COPY ./default.conf /etc/nginx/conf.d/default.conf
 WORKDIR /app
 
 RUN pip install -r /app/venv/requirements.txt
+RUN wget -P /app https://github.com/leopepe/DockerSpy/archive/master.zip \
+ && unzip master.zip && chmod -R u+x DockerSpy-master/DockerSPy/main.py
 
 VOLUME ["/etc/nginx/certs"]
 

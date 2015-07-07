@@ -1,2 +1,2 @@
 nginx: nginx
-dockerspy: /app/DockerSpy/main.py
+dockerspy: python /app/DockerSpy-master/DockerSPy/main.py
