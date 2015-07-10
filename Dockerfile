@@ -6,6 +6,7 @@ RUN apt-get update \
  && apt-get install -y -q --no-install-recommends \
     ca-certificates \
     wget \
+    python3 \
     python-pip \
     unzip \
  && apt-get clean \
@@ -21,7 +22,7 @@ WORKDIR /app
 
 RUN pip install -r /app/venv/requirements.txt
 RUN wget -P /app https://github.com/leopepe/DockerSpy/archive/master.zip \
- && unzip master.zip && chmod -R u+x DockerSpy-master/DockerSPy/main.py
+ && unzip master.zip && chmod -R u+x DockerSpy-master/DockerSPy/__main__.py
 
 VOLUME ["/etc/nginx/certs"]
 

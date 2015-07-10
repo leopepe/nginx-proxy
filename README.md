@@ -9,7 +9,7 @@ This project implements an nginx balancer capable of automatcly include nodes be
 
 To start the container run the command as described:
 
-    $ docker run -d -p 80:80 -v /var/run/docker.sock:/var/run/docker.sock:ro leopepe/nginx-proxy
+    $ docker run -dt --name proxy -p 80:80 -p 443:443 -v /var/run/docker.sock:/var/run/docker.sock:ro -v /etc/nginx/certs/:/etc/nginx/certs:ro leopepe/nginx-proxy
 
 In due to the nginx-proxy work correctly and recognize the nodes being bringup behind it the containers need to start with two environment variables:
 
