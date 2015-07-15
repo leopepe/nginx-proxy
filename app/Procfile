@@ -1,0 +1,2 @@
+nginx: nginx
+dockerspy: dockerspy -u $DOCKER_HOST -o $CONFIG_DEST -t $TEMPLATE_FILE

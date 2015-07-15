@@ -1,0 +1,1 @@
+docker run -dt --name proxy -e 'PYTHONIOENCODING="utf-8"' -p 80:80 -p 443:443 -v /etc/nginx/certs:/etc/nginx/certs -v /var/run/docker.sock:/var/run/docker.sock -v /home/leonardo/Workspace/docker/nginx-proxy/app/templates:/app/templates leopepe/nginx-proxy:1.5
